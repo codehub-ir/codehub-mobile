@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   // todo [mahmoud]: add onGeneration navigation to application
   navigateToNextPage() async {
     await Future.delayed(const Duration(seconds: 2));
-    Navigator.push(
+    Navigator.pushReplacement(
         context,
         MaterialPageRoute(
           builder: (context) => const IntroScreen(),
