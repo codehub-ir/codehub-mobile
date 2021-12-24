@@ -1,3 +1,4 @@
+import 'package:codehub/constant/app_strings/app_strings.dart';
 import 'package:codehub/global_widgets/custom_indicator/custom_indicators.dart';
 import 'package:codehub/screens/intro/ui/intro_screen.dart';
 import 'package:flutter/material.dart';
