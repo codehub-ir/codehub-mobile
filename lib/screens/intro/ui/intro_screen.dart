@@ -1,5 +1,6 @@
 import 'package:codehub/constant/app_colors/app_colors.dart';
 import 'package:codehub/constant/app_strings/app_strings.dart';
+import 'package:codehub/screens/home/ui/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
@@ -47,19 +48,25 @@ class _IntroScreenState extends State<IntroScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: IntroductionScreen(
-      color: primaryColor,
-      pages: pages,
-      onDone: () {
-        // When done button is press
-      },
-      dotsDecorator: const DotsDecorator(
-        activeColor: primaryColor,
+      body: IntroductionScreen(
+        color: primaryColor,
+        pages: pages,
+        onDone: () {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomeScreen(),
+            ),
+          );
+        },
+        dotsDecorator: const DotsDecorator(
+          activeColor: primaryColor,
+        ),
+        showSkipButton: true,
+        showNextButton: false,
+        skip: const Text(skipBtn),
+        done: const Text(doneBtn),
       ),
-      showSkipButton: true,
-      showNextButton: false,
-      skip: const Text(skipBtn),
-      done: const Text(doneBtn),
-    ));
+    );
   }
 }
