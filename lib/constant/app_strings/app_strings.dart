@@ -15,6 +15,11 @@ const haveAccount = "آیا حساب کاربری دارید ؟";
 const registerTitle = "ثبت نام";
 const registerBtn = "ثبت نام";
 const termsAndConditions = "قوانین و شرایط را خوانده و پذیرفته ام";
+const createSnippet = "بساز";
+const snippetNameTitle = "عنوان";
+const snippetDescriptionTitle = "توضیحات";
+const snippetCodeTitle = "کد";
+const snippetLangTitle = "زبان برنامه نویسی";
 
 const newTagTitle = "برچسب جدید";
 const developmentTitle = "توسعه";

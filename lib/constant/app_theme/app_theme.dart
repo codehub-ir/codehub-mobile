@@ -4,9 +4,7 @@ import 'package:flutter/material.dart';
 class AppTheme {
   static final theme = ThemeData(
     primaryColor: primaryColor,
-    appBarTheme: AppBarTheme(
-      color: primaryColor,
-    ),
+    appBarTheme: AppBarTheme(color: primaryColor, centerTitle: true),
     fontFamily: "vazir",
   );
 }
