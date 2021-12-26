@@ -5,9 +5,9 @@ import 'package:codehub/global_widgets/custom_auth_widget/custom_auth_widget.dar
 import 'package:codehub/global_widgets/custom_checkbox/custom_checkbox.dart';
 import 'package:codehub/global_widgets/custom_gradient_button/custom_gradient_button.dart';
 import 'package:codehub/screens/register/ui/register_screen.dart';
+import 'package:codehub/utils/size_config/size_config.dart';
 import 'package:flutter/material.dart';
 
-// todo : work on responsive
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -21,6 +21,10 @@ class _LoginPageState extends State<LoginPage> {
       passwordVisible = !passwordVisible;
     });
   }
+
+  sizedBox(h) => SizedBox(
+        height: h,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -41,15 +45,11 @@ class _LoginPageState extends State<LoginPage> {
                       loginTitle,
                       style: titleBoldStyle,
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
+                    sizedBox(SizeConfig.heightMultiplier * 2),
                     customAuthWidget(),
                   ],
                 ),
-                SizedBox(
-                  height: 48,
-                ),
+                sizedBox(SizeConfig.heightMultiplier * 13),
                 Form(
                   child: Column(
                     children: [
@@ -67,9 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 32,
-                      ),
+                      sizedBox(SizeConfig.heightMultiplier * 2),
                       Container(
                         decoration: BoxDecoration(
                           color: textWhiteGrey,
@@ -96,9 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 32,
-                ),
+                sizedBox(SizeConfig.heightMultiplier * 6),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -109,9 +105,7 @@ class _LoginPageState extends State<LoginPage> {
                     Text(rememberHint),
                   ],
                 ),
-                SizedBox(
-                  height: 32,
-                ),
+                sizedBox(SizeConfig.heightMultiplier * 6),
                 Center(
                   child: CustomGradientButton(
                     onPressed: () {},
@@ -122,9 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                     colors: [primaryColor, Colors.cyan],
                   ),
                 ),
-                SizedBox(
-                  height: 10,
-                ),
+                sizedBox(SizeConfig.heightMultiplier * 2),
                 Center(
                   child: CustomGradientButton(
                     onPressed: () {
@@ -137,9 +129,7 @@ class _LoginPageState extends State<LoginPage> {
                     colors: [Colors.red, primaryColor.withOpacity(.2)],
                   ),
                 ),
-                SizedBox(
-                  height: 24,
-                ),
+                sizedBox(SizeConfig.heightMultiplier * 4),
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -161,9 +151,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ],
                   ),
-                ),
-                SizedBox(
-                  height: 24,
                 ),
               ],
             ),

@@ -4,6 +4,7 @@ import 'package:codehub/constant/app_styles.dart';
 import 'package:codehub/global_widgets/custom_auth_widget/custom_auth_widget.dart';
 import 'package:codehub/global_widgets/custom_checkbox/custom_checkbox.dart';
 import 'package:codehub/global_widgets/custom_gradient_button/custom_gradient_button.dart';
+import 'package:codehub/utils/size_config/size_config.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -20,6 +21,10 @@ class _RegisterPageState extends State<RegisterPage> {
       passwordVisible = !passwordVisible;
     });
   }
+
+  sizedBox(h) => SizedBox(
+        height: h,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -40,15 +45,11 @@ class _RegisterPageState extends State<RegisterPage> {
                       registerTitle,
                       style: titleBoldStyle,
                     ),
-                    SizedBox(
-                      height: 20,
-                    ),
+                    sizedBox(SizeConfig.heightMultiplier * 2),
                     customAuthWidget(),
                   ],
                 ),
-                SizedBox(
-                  height: 48,
-                ),
+                sizedBox(SizeConfig.heightMultiplier * 13),
                 Form(
                   child: Column(
                     children: [
@@ -66,9 +67,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 32,
-                      ),
+                      sizedBox(SizeConfig.heightMultiplier * 2),
                       Container(
                         decoration: BoxDecoration(
                           color: textWhiteGrey,
@@ -92,9 +91,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 32,
-                      ),
+                      sizedBox(SizeConfig.heightMultiplier * 2),
                       Container(
                         decoration: BoxDecoration(
                           color: textWhiteGrey,
@@ -126,9 +123,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 32,
-                ),
+                sizedBox(SizeConfig.heightMultiplier * 6),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -142,9 +137,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 32,
-                ),
+                sizedBox(SizeConfig.heightMultiplier * 6),
                 Center(
                   child: CustomGradientButton(
                     onPressed: () {},
@@ -155,9 +148,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     colors: [primaryColor, primaryColor.withOpacity(.2)],
                   ),
                 ),
-                SizedBox(
-                  height: 50,
-                ),
+                sizedBox(SizeConfig.heightMultiplier * 4),
                 GestureDetector(
                   onTap: () {
                     Navigator.pop(context);
