@@ -2,6 +2,7 @@ import 'package:codehub/constant/app_colors/app_colors.dart';
 import 'package:codehub/constant/app_strings/app_strings.dart';
 import 'package:codehub/constant/app_styles.dart';
 import 'package:codehub/global_widgets/custom_gradient_button/custom_gradient_button.dart';
+import 'package:codehub/screens/login/ui/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -83,6 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 color: Colors.transparent,
                 child: RichText(
                   text: TextSpan(
+                    style: TextStyle(fontFamily: "vazir"),
                     children: <TextSpan>[
                       TextSpan(
                         text: helloTitle,
@@ -107,7 +109,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               drawerRowTile(
                 icon: Icons.account_circle_outlined,
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginPage(),
+                    ),
+                  );
+                },
                 title: loginTitle,
               ),
               drawerRowTile(
@@ -124,6 +133,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 icon: Icons.developer_mode,
                 onTap: () {},
                 title: developmentTitle,
+              ),
+              drawerRowTile(
+                icon: Icons.event,
+                onTap: () {},
+                title: eventsTitle,
               ),
               Divider(
                 height: 20,
