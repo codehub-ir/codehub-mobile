@@ -6,5 +6,8 @@ class AppTheme {
     primaryColor: primaryColor,
     appBarTheme: AppBarTheme(color: primaryColor, centerTitle: true),
     fontFamily: "vazir",
+    snackBarTheme: SnackBarThemeData(
+      contentTextStyle: TextStyle(fontFamily: "vazir"),
+    ),
   );
 }
