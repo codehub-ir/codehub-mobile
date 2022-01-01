@@ -7,7 +7,7 @@ class ApiBaseHelper {
   static Future<dynamic> get(String url) async {
     var responseJson;
     try {
-      final response = await http.get(Uri.parse(baseUrl + url));
+      final response = await http.get(Uri.parse(baseUrlPath + url));
       responseJson = _returnResponse(response);
     } on SocketException {
       throw Exception('No Internet connection');
@@ -19,7 +19,7 @@ class ApiBaseHelper {
     var responseJson;
     try {
       final response =
-          await http.post(Uri.parse(baseUrl + url), body: body ?? {});
+          await http.post(Uri.parse(baseUrlPath + url), body: body ?? {});
       responseJson = _returnResponse(response);
     } on SocketException {
       throw Exception('No Internet connection');
@@ -31,12 +31,16 @@ class ApiBaseHelper {
     switch (response.statusCode) {
       case 200:
         var responseJson = json.decode(response.body.toString());
-        print(responseJson);
+        return responseJson;
+      case 201:
+        var responseJson = json.decode(response.body.toString());
         return responseJson;
       case 400:
         throw Exception(response.body.toString());
       case 401:
       case 403:
+        throw Exception(response.body.toString());
+      case 405:
         throw Exception(response.body.toString());
       case 500:
       default:

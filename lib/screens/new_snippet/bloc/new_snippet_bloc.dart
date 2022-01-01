@@ -1,9 +1,11 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:codehub/constant/api_path/api_path.dart';
 import 'package:codehub/constant/app_strings/app_strings.dart';
 import 'package:codehub/screens/new_snippet/model/snippet_lang_model.dart';
 import 'package:codehub/screens/new_snippet/model/snippet_model.dart';
+import 'package:codehub/services/api_base_helper/api_base_helper.dart';
 import 'package:equatable/equatable.dart';
 
 part 'new_snippet_event.dart';
@@ -40,14 +42,25 @@ class NewSnippetBloc extends Bloc<NewSnippetEvent, NewSnippetState> {
     on<LanguagesItemOnSelect>((event, emit) {
       emit(LanguageSelectedSuccess(event.item));
     });
-    on<SubmitSnippet>((event, emit) {
-      emit(SubmitSnippetLoading());
+    on<SubmitSnippet>((event, emit) async {
+      try {
+        emit(SubmitSnippetLoading());
 
-      if (checkValues(event.snippet) != null) {
-        String? error = checkValues(event.snippet);
-        emit(SubmitSnippetFailed(error!));
-      } else {
-        emit(SubmitSnippetSuccess());
+        if (checkValues(event.snippet) != null) {
+          String? error = checkValues(event.snippet);
+          emit(SubmitSnippetFailed(error!));
+        } else {
+          var data = await ApiBaseHelper.post(createSnippetPath, body: {
+            "title": event.snippet.title,
+            "description": event.snippet.description,
+            "body": event.snippet.body,
+            "lang": event.snippet.language,
+          });
+
+          emit(SubmitSnippetSuccess());
+        }
+      } catch (e, s) {
+        emit(SubmitSnippetFailed(e.toString()));
       }
     });
   }
