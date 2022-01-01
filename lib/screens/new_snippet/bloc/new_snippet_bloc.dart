@@ -21,6 +21,7 @@ class NewSnippetBloc extends Bloc<NewSnippetEvent, NewSnippetState> {
     SnippetLangModel(name: "Css", value: "css"),
     SnippetLangModel(name: "Dart", value: "dart"),
     SnippetLangModel(name: "Docker", value: "docker"),
+    SnippetLangModel(name: "Docker-Compose", value: "docker-compose"),
     SnippetLangModel(name: "Go", value: "go"),
     SnippetLangModel(name: "Html", value: "html"),
     SnippetLangModel(name: "Java", value: "java"),
