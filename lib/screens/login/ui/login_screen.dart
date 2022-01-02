@@ -1,6 +1,6 @@
 import 'package:codehub/constant/app_colors/app_colors.dart';
 import 'package:codehub/constant/app_strings/app_strings.dart';
-import 'package:codehub/constant/app_styles.dart';
+import 'package:codehub/constant/app_styles/app_styles.dart';
 import 'package:codehub/global_widgets/custom_auth_widget/custom_auth_widget.dart';
 import 'package:codehub/global_widgets/custom_checkbox/custom_checkbox.dart';
 import 'package:codehub/global_widgets/custom_gradient_button/custom_gradient_button.dart';

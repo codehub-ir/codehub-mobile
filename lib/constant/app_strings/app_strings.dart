@@ -22,6 +22,8 @@ const snippetCodeTitle = "کد";
 const snippetLangTitle = "زبان برنامه نویسی";
 const snippetAddedSuccessTitle = "تکه کد با موفقیت اضافه شد";
 
+const tryAgainBtn = "دوباره تلاش کنید";
+
 const titleSnippetError = "لطفا عنوان مورد نظر را وارد کنید";
 const descriptionSnippetError = "لطفا توضیحات مورد نظر را وارد کنید";
 const languageSnippetError = "لطفا زبان مورد نظر را وارد کنید";

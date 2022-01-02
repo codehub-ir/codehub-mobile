@@ -1,7 +1,8 @@
 import 'package:codehub/constant/app_colors/app_colors.dart';
 import 'package:codehub/constant/app_strings/app_strings.dart';
-import 'package:codehub/constant/app_styles.dart';
+import 'package:codehub/constant/app_styles/app_styles.dart';
 import 'package:codehub/global_widgets/custom_gradient_button/custom_gradient_button.dart';
+import 'package:codehub/screens/events/ui/event_screen.dart';
 import 'package:codehub/screens/login/ui/login_screen.dart';
 import 'package:codehub/screens/new_snippet/ui/new_snippet_screen.dart';
 import 'package:flutter/material.dart';
@@ -144,7 +145,14 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               drawerRowTile(
                 icon: Icons.event,
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => EventScreen(),
+                    ),
+                  );
+                },
                 title: eventsTitle,
               ),
               Divider(
