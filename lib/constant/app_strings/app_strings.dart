@@ -20,11 +20,14 @@ const snippetNameTitle = "عنوان";
 const snippetDescriptionTitle = "توضیحات";
 const snippetCodeTitle = "کد";
 const snippetLangTitle = "زبان برنامه نویسی";
+const snippetAddedSuccessTitle = "تکه کد با موفقیت اضافه شد";
 
 const titleSnippetError = "لطفا عنوان مورد نظر را وارد کنید";
 const descriptionSnippetError = "لطفا توضیحات مورد نظر را وارد کنید";
 const languageSnippetError = "لطفا زبان مورد نظر را وارد کنید";
 const bodySnippetError = "لطفا کد مورد نظر را وارد کنید";
+
+const eventPageTitle = "جدید ترین رویداد ها";
 
 const newTagTitle = "برچسب جدید";
 const developmentTitle = "توسعه";

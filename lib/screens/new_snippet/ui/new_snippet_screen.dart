@@ -6,6 +6,7 @@ import 'package:codehub/global_widgets/custom_indicator/custom_indicators.dart';
 import 'package:codehub/screens/new_snippet/bloc/new_snippet_bloc.dart';
 import 'package:codehub/screens/new_snippet/model/snippet_lang_model.dart';
 import 'package:codehub/screens/new_snippet/model/snippet_model.dart';
+import 'package:codehub/utils/custom_snack_bar/custom_snack_bar.dart';
 import 'package:codehub/utils/size_config/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -58,14 +59,10 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
           bloc: _newSnippetBloc,
           listener: (context, state) {
             if (state is SubmitSnippetFailed) {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(
-                    state.error,
-                    style: underlineStyle.copyWith(color: whiteColor),
-                  ),
-                ),
-              );
+              customSnackBar(context, state.error, isSuccess: false);
+            } else if (state is SubmitSnippetSuccess) {
+              customSnackBar(context, snippetAddedSuccessTitle,
+                  isSuccess: true);
             }
           },
           child: SingleChildScrollView(

@@ -6,6 +6,7 @@ import 'package:codehub/constant/app_strings/app_strings.dart';
 import 'package:codehub/screens/new_snippet/model/snippet_lang_model.dart';
 import 'package:codehub/screens/new_snippet/model/snippet_model.dart';
 import 'package:codehub/services/api_base_helper/api_base_helper.dart';
+import 'package:codehub/utils/custom_debugger/custom_debugger.dart';
 import 'package:equatable/equatable.dart';
 
 part 'new_snippet_event.dart';
@@ -57,10 +58,13 @@ class NewSnippetBloc extends Bloc<NewSnippetEvent, NewSnippetState> {
             "lang": event.snippet.language,
           });
 
+          print(data);
+
           emit(SubmitSnippetSuccess());
         }
       } catch (e, s) {
         emit(SubmitSnippetFailed(e.toString()));
+        CustomDebugger.errorDebugger(e, s);
       }
     });
   }
