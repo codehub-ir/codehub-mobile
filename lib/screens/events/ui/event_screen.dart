@@ -27,11 +27,17 @@ class EventScreen extends StatelessWidget {
               if (state is EventsFetchSuccess) {
                 eventsList = state.events;
               } else if (state is EventsFetchFailed) {
-                return TextButton(
+                return Center(
+                  child: TextButton(
                     onPressed: () {
                       BlocProvider.of<EventsBloc>(context)..add(InitialEvent());
                     },
-                    child: Text(tryAgainBtn));
+                    child: Text(
+                      tryAgainBtn,
+                      style: bodyBoldStyle.copyWith(color: primaryColor),
+                    ),
+                  ),
+                );
               } else if (state is EventsFetchLoading) {
                 return Center(child: CustomIndicators());
               }

@@ -1,7 +1,7 @@
 import 'package:codehub/constant/app_colors/app_colors.dart';
 import 'package:codehub/constant/app_strings/app_strings.dart';
 import 'package:codehub/constant/app_styles/app_styles.dart';
-import 'package:codehub/global_widgets/custom_gradient_button/custom_gradient_button.dart';
+import 'package:codehub/screens/development/ui/development_screen.dart';
 import 'package:codehub/screens/events/ui/event_screen.dart';
 import 'package:codehub/screens/login/ui/login_screen.dart';
 import 'package:codehub/screens/new_snippet/ui/new_snippet_screen.dart';
@@ -133,14 +133,21 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 title: newSnippetTitle,
               ),
-              drawerRowTile(
-                icon: Icons.tag,
-                onTap: () {},
-                title: tagsTitle,
-              ),
+              // drawerRowTile(
+              //   icon: Icons.tag,
+              //   onTap: () {},
+              //   title: tagsTitle,
+              // ),
               drawerRowTile(
                 icon: Icons.developer_mode,
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DevelopmentScreen(),
+                    ),
+                  );
+                },
                 title: developmentTitle,
               ),
               drawerRowTile(

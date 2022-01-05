@@ -21,6 +21,10 @@ const snippetDescriptionTitle = "توضیحات";
 const snippetCodeTitle = "کد";
 const snippetLangTitle = "زبان برنامه نویسی";
 const snippetAddedSuccessTitle = "تکه کد با موفقیت اضافه شد";
+const developmentPageTitle = "کد هاب برای توسعه دهندگان";
+
+const developmentDescription =
+    "ما علاوه بر تمام خدماتی که در اختیار شما قرار دادیم، یک سرویس Rest API هم برای توسعه دهندگان و برنامه نویس ها ایجاد کردیم تا به راحتی از خدمات کد هاب، روی هر پلتفورمی استفاده کنند و اپلیکیشن های خودشون رو توسعه بدن. از لیست زیر، داکیومنت مورد نظر خودتون رو بررسی کنید.";
 
 const tryAgainBtn = "دوباره تلاش کنید";
 
