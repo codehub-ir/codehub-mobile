@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:codehub/constant/api_path/api_path.dart';
 import 'package:codehub/screens/events/model/event_model.dart';

@@ -30,10 +30,12 @@ class ApiBaseHelper {
   static dynamic _returnResponse(http.Response response) {
     switch (response.statusCode) {
       case 200:
-        var responseJson = json.decode(response.body.toString());
+        String body = utf8.decode(response.bodyBytes);
+        var responseJson = json.decode(body);
         return responseJson;
       case 201:
-        var responseJson = json.decode(response.body.toString());
+        String body = utf8.decode(response.bodyBytes);
+        var responseJson = json.decode(body);
         return responseJson;
       case 400:
         throw Exception(response.body.toString());
