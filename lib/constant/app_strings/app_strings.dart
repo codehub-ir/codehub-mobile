@@ -39,6 +39,7 @@ const newTagTitle = "برچسب جدید";
 const developmentTitle = "توسعه";
 const eventsTitle = "رویداد ها";
 const tagsTitle = "برچسب ها";
+const settingTitle = "تنظیمات";
 const welcomeTitle = "خوش اومدی!";
 const introTitle1 = "سرویس متن‌باز و رایگان کد هاب!";
 const introBody1 =

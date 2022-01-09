@@ -6,6 +6,7 @@ import 'package:codehub/screens/events/ui/event_screen.dart';
 import 'package:codehub/screens/login/ui/login_screen.dart';
 import 'package:codehub/screens/new_snippet/ui/new_snippet_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Icon(
+              FaIcon(
                 icon,
                 color: primaryColor,
               ),
@@ -137,6 +138,11 @@ class _HomeScreenState extends State<HomeScreen> {
               //   icon: Icons.tag,
               //   onTap: () {},
               //   title: tagsTitle,
+              // ),
+              // drawerRowTile(
+              //   icon: Icons.settings,
+              //   onTap: () {},
+              //   title: settingTitle,
               // ),
               drawerRowTile(
                 icon: Icons.developer_mode,

@@ -1,7 +1,6 @@
 import 'package:codehub/constant/app_colors/app_colors.dart';
 import 'package:codehub/constant/app_strings/app_strings.dart';
 import 'package:codehub/constant/app_styles/app_styles.dart';
-import 'package:codehub/global_widgets/custom_indicator/custom_indicators.dart';
 import 'package:codehub/screens/events/bloc/events_bloc.dart';
 import 'package:codehub/screens/events/model/event_model.dart';
 import 'package:codehub/utils/extensions/time_formatter/time_formatter.dart';
@@ -42,12 +41,11 @@ class EventScreen extends StatelessWidget {
               } else if (state is EventsFetchLoading) {
                 return shimmerWidget();
               }
-              return shimmerWidget();
 
-              // return ListView.builder(
-              //   itemCount: eventsList.length,
-              //   itemBuilder: (context, index) => eventCard(eventsList[index]),
-              // );
+              return ListView.builder(
+                itemCount: eventsList.length,
+                itemBuilder: (context, index) => eventCard(eventsList[index]),
+              );
             },
           ),
         ));
