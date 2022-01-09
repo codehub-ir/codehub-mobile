@@ -5,7 +5,6 @@ import 'package:codehub/service_locator.dart';
 import 'package:codehub/utils/size_config/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:get_storage/get_storage.dart';
 
 void main() async {
   serviceLocator();

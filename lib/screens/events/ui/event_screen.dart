@@ -8,6 +8,7 @@ import 'package:codehub/utils/extensions/time_formatter/time_formatter.dart';
 import 'package:codehub/utils/size_config/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:skeletons/skeletons.dart';
 
 class EventScreen extends StatelessWidget {
   const EventScreen({Key? key}) : super(key: key);
@@ -39,16 +40,67 @@ class EventScreen extends StatelessWidget {
                   ),
                 );
               } else if (state is EventsFetchLoading) {
-                return Center(child: CustomIndicators());
+                return shimmerWidget();
               }
-              return ListView.builder(
-                itemCount: eventsList.length,
-                itemBuilder: (context, index) => eventCard(eventsList[index]),
-              );
+              return shimmerWidget();
+
+              // return ListView.builder(
+              //   itemCount: eventsList.length,
+              //   itemBuilder: (context, index) => eventCard(eventsList[index]),
+              // );
             },
           ),
         ));
   }
+
+  Widget shimmerWidget() => ListView.builder(
+        physics: NeverScrollableScrollPhysics(),
+        itemCount: 5,
+        itemBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Container(
+            padding: const EdgeInsets.all(8.0),
+            decoration: BoxDecoration(color: Colors.white),
+            child: SkeletonItem(
+                child: Column(
+              children: [
+                SkeletonParagraph(
+                  style: SkeletonParagraphStyle(
+                      lines: 1,
+                      spacing: 12,
+                      lineStyle: SkeletonLineStyle(
+                        height: 15,
+                        width: SizeConfig.widthMultiplier * 70,
+                        borderRadius: BorderRadius.circular(8),
+                        minLength: MediaQuery.of(context).size.width / 2,
+                      )),
+                ),
+                SkeletonParagraph(
+                  style: SkeletonParagraphStyle(
+                      lines: 1,
+                      spacing: 12,
+                      lineStyle: SkeletonLineStyle(
+                        height: 30,
+                        width: SizeConfig.widthMultiplier * 28,
+                        borderRadius: BorderRadius.circular(8),
+                        minLength: MediaQuery.of(context).size.width / 2,
+                      )),
+                ),
+                SkeletonParagraph(
+                  style: SkeletonParagraphStyle(
+                      lines: 3,
+                      spacing: 6,
+                      lineStyle: SkeletonLineStyle(
+                        height: 9,
+                        borderRadius: BorderRadius.circular(8),
+                        minLength: MediaQuery.of(context).size.width / 2,
+                      )),
+                ),
+              ],
+            )),
+          ),
+        ),
+      );
 
   Widget eventCard(EventsModel event) => Card(
         child: Padding(
