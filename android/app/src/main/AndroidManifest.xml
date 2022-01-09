@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.code.codehub">
+     <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="codehub"
         android:icon="@mipmap/launcher_icon">

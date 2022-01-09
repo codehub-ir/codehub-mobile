@@ -1,6 +1,8 @@
 import 'package:codehub/constant/app_colors/app_colors.dart';
 import 'package:codehub/constant/app_strings/app_strings.dart';
 import 'package:codehub/screens/home/ui/home_screen.dart';
+import 'package:codehub/service_locator.dart';
+import 'package:codehub/services/storage/storage.dart';
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
@@ -52,6 +54,7 @@ class _IntroScreenState extends State<IntroScreen> {
         color: primaryColor,
         pages: pages,
         onDone: () {
+          getIt<Storage>().writeIntroState();
           Navigator.pushReplacement(
             context,
             MaterialPageRoute(
