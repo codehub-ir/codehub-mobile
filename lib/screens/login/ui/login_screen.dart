@@ -123,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pop(context);
                     },
                     child: Text(backBtn),
-                    width: 170,
+                    width: 200,
                     height: 50,
                     borderRadius: 20,
                     colors: [Colors.red, primaryColor.withOpacity(.2)],

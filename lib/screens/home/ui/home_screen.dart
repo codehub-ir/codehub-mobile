@@ -5,6 +5,7 @@ import 'package:codehub/screens/development/ui/development_screen.dart';
 import 'package:codehub/screens/events/ui/event_screen.dart';
 import 'package:codehub/screens/login/ui/login_screen.dart';
 import 'package:codehub/screens/new_snippet/ui/new_snippet_screen.dart';
+import 'package:codehub/utils/custom_url_launcher/custom_url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -24,6 +25,85 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
       ),
       drawer: customDrawer(),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
+          child: Column(
+            children: [
+              Center(
+                child: Text(
+                  homeContentTitle,
+                  style: titleBoldStyle,
+                ),
+              ),
+              sizedBox(),
+              Text(
+                homeContentDescription,
+                style: bodyStyle,
+              ),
+              sizedBox(),
+              Image.asset(
+                'assets/images/django.png',
+                width: 110,
+              ),
+              Center(
+                child: Text(
+                  "+",
+                  style: titleBoldStyle,
+                ),
+              ),
+              sizedBox(),
+              Image.asset(
+                'assets/images/flutter.png',
+                width: 90,
+              ),
+              sizedBox(),
+              Center(
+                child: Text(
+                  "=",
+                  style: titleBoldStyle,
+                ),
+              ),
+              sizedBox(),
+              Image.asset(
+                'assets/images/logo.png',
+                width: 90,
+              ),
+              sizedBox(),
+              sizedBox(),
+              sizedBox(),
+              sizedBox(),
+              sizedBox(),
+              Center(
+                child: Text(
+                  homeContributeTitle,
+                  style: titleBoldStyle,
+                ),
+              ),
+              sizedBox(),
+              Text(
+                homeContributeDescription,
+                style: bodyStyle,
+              ),
+              sizedBox(),
+              GestureDetector(
+                onTap: () {
+                  CustomUrlLauncher.launchURL(
+                      "https://github.com/codehub-ir/codehub");
+                },
+                child: Image.asset(
+                  'assets/images/git.png',
+                  width: 90,
+                ),
+              ),
+              Text(
+                repoDescription,
+                style: bodyStyle.copyWith(color: Colors.grey),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 
