@@ -6,7 +6,7 @@ import 'package:codehub/screens/new_snippet/model/snippet_model.dart';
 import 'package:codehub/services/api_base_helper/api_base_helper.dart';
 import 'package:codehub/src/core/constant/api_path/api_path.dart';
 import 'package:codehub/src/core/constant/app_strings/app_strings.dart';
-import 'package:codehub/utils/custom_debugger/custom_debugger.dart';
+import 'package:codehub/src/core/utils/custom_debugger/custom_debugger.dart';
 import 'package:equatable/equatable.dart';
 
 part 'new_snippet_event.dart';

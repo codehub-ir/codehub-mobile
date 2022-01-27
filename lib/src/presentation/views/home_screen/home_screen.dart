@@ -1,11 +1,11 @@
 import 'package:codehub/src/core/constant/app_colors/app_colors.dart';
 import 'package:codehub/src/core/constant/app_strings/app_strings.dart';
 import 'package:codehub/src/core/constant/app_styles/app_styles.dart';
+import 'package:codehub/src/core/utils/custom_url_launcher/custom_url_launcher.dart';
 import 'package:codehub/src/presentation/views/development_screen/development_screen.dart';
 import 'package:codehub/src/presentation/views/event_screen/event_screen.dart';
 import 'package:codehub/src/presentation/views/login_screen/login_screen.dart';
 import 'package:codehub/src/presentation/views/new_snippet_screen/new_snippet_screen.dart';
-import 'package:codehub/utils/custom_url_launcher/custom_url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

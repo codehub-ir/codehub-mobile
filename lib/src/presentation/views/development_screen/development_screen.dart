@@ -1,7 +1,7 @@
 import 'package:codehub/src/core/constant/app_strings/app_strings.dart';
 import 'package:codehub/src/core/constant/app_styles/app_styles.dart';
-import 'package:codehub/utils/custom_url_launcher/custom_url_launcher.dart';
-import 'package:codehub/utils/size_config/size_config.dart';
+import 'package:codehub/src/core/utils/custom_url_launcher/custom_url_launcher.dart';
+import 'package:codehub/src/core/utils/size_config/size_config.dart';
 import 'package:flutter/material.dart';
 
 class DevelopmentScreen extends StatelessWidget {

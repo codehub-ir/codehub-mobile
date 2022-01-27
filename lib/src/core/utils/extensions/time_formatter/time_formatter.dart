@@ -1,4 +1,4 @@
-import 'package:codehub/utils/extensions/persian_utils/persian_utils.dart';
+import 'package:codehub/src/core/utils/extensions/persian_utils/persian_utils.dart';
 import 'package:intl/intl.dart';
 
 extension TimeFormatter on DateTime {
