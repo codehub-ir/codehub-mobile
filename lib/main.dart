@@ -1,10 +1,11 @@
-import 'package:codehub/constant/app_strings/app_strings.dart';
-import 'package:codehub/constant/app_theme/app_theme.dart';
-import 'package:codehub/screens/splash/ui/splash_screen.dart';
-import 'package:codehub/service_locator.dart';
+import 'package:codehub/src/config/app_theme/app_theme.dart';
+import 'package:codehub/src/presentation/views/register_screen/splash_screen.dart';
+import 'package:codehub/src/injector.dart';
 import 'package:codehub/utils/size_config/size_config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+
+import 'src/core/constant/app_strings/app_strings.dart';
 
 void main() async {
   serviceLocator();

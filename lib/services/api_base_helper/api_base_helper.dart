@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:codehub/constant/api_path/api_path.dart';
+import 'package:codehub/src/core/constant/api_path/api_path.dart';
 import 'package:http/http.dart' as http;
 
 class ApiBaseHelper {

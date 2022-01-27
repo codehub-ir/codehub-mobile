@@ -1,4 +1,4 @@
-import 'package:codehub/service_locator.dart';
+import 'package:codehub/src/injector.dart';
 import 'package:get_storage/get_storage.dart';
 
 class Storage {
