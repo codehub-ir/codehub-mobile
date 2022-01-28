@@ -3,11 +3,11 @@ import 'package:codehub/src/core/constant/app_strings/app_strings.dart';
 import 'package:codehub/src/core/constant/app_styles/app_styles.dart';
 import 'package:codehub/src/core/utils/custom_snack_bar/custom_snack_bar.dart';
 import 'package:codehub/src/core/utils/size_config/size_config.dart';
+import 'package:codehub/src/data/models/snippet_language_model.dart';
+import 'package:codehub/src/data/models/snippet_model.dart';
 import 'package:codehub/src/presentation/blocs/new_snippet_bloc/new_snippet_bloc.dart';
 import 'package:codehub/src/presentation/widgets/custom_gradient_button.dart';
 import 'package:codehub/src/presentation/widgets/custom_indicators.dart';
-import 'package:codehub/screens/new_snippet/model/snippet_lang_model.dart';
-import 'package:codehub/screens/new_snippet/model/snippet_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

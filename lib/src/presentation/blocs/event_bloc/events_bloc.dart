@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:codehub/screens/events/model/event_model.dart';
 import 'package:codehub/services/api_base_helper/api_base_helper.dart';
 import 'package:codehub/src/core/constant/api_path/api_path.dart';
 import 'package:codehub/src/core/utils/custom_debugger/custom_debugger.dart';
+import 'package:codehub/src/data/models/event_model.dart';
 import 'package:equatable/equatable.dart';
 
 part 'events_event.dart';
