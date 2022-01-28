@@ -1,23 +1,15 @@
-class EventsModel {
-  EventsModel({
-    required this.title,
-    required this.body,
-    required this.createdOn,
-  });
+import 'package:codehub/src/domain/entities/event.dart';
 
-  final String title;
-  final String body;
-  final DateTime createdOn;
+class EventsModel extends Event {
+  EventsModel({
+    required String title,
+    required String body,
+    required DateTime createdOn,
+  }) : super(body: body, title: title, createdOn: createdOn);
 
   factory EventsModel.fromJson(Map<String, dynamic> json) => EventsModel(
         title: json["title"],
         body: json["body"],
         createdOn: DateTime.parse(json["created_on"]),
       );
-
-  Map<String, dynamic> toJson() => {
-        "title": title,
-        "body": body,
-        "created_on": createdOn.toIso8601String(),
-      };
 }

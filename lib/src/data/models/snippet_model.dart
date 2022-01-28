@@ -1,12 +1,16 @@
-class SnippetModel {
-  final String title, description, language, body;
+import 'package:codehub/src/domain/entities/snippet.dart';
 
+class SnippetModel extends Snippet {
   SnippetModel({
-    required this.title,
-    required this.description,
-    required this.language,
-    required this.body,
-  });
+    required String title,
+    required String description,
+    required String language,
+    required String body,
+  }) : super(
+            body: body,
+            description: description,
+            language: language,
+            title: title);
 
   static toJson(SnippetModel item) => {
         "title": item.title,
