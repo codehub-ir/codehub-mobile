@@ -29,7 +29,7 @@ class SubmitSnippetFailed extends NewSnippetState {
 }
 
 class LanguageSelectedSuccess extends NewSnippetState {
-  final SnippetLangModel item;
+  final SnippetLanguageModel item;
 
   LanguageSelectedSuccess(this.item);
 

@@ -25,8 +25,8 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
 
   late NewSnippetBloc _newSnippetBloc;
 
-  SnippetLangModel selectedLanguageItem =
-      SnippetLangModel(name: "-----", value: "-");
+  SnippetLanguageModel selectedLanguageItem =
+      SnippetLanguageModel(name: "-----", value: "-");
 
   @override
   void initState() {
@@ -138,7 +138,7 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
                             width: SizeConfig.widthMultiplier * 100,
                             height: 70,
                             child: Center(
-                              child: DropdownButton<SnippetLangModel>(
+                              child: DropdownButton<SnippetLanguageModel>(
                                 isExpanded: true,
                                 style: underlineBoldStyle,
                                 menuMaxHeight: SizeConfig.heightMultiplier * 50,
@@ -149,7 +149,7 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
                                 ),
                                 underline: Container(),
                                 items: _newSnippetBloc.languagesModel.map((e) {
-                                  return DropdownMenuItem<SnippetLangModel>(
+                                  return DropdownMenuItem<SnippetLanguageModel>(
                                     value: e,
                                     child: Directionality(
                                         textDirection: TextDirection.ltr,

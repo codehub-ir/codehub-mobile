@@ -14,7 +14,7 @@ class SubmitSnippet extends NewSnippetEvent {
 }
 
 class LanguagesItemOnSelect extends NewSnippetEvent {
-  final SnippetLangModel item;
+  final SnippetLanguageModel item;
 
   LanguagesItemOnSelect(this.item);
 

@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
-class SnippetLangModel extends Equatable {
+class SnippetLanguageModel extends Equatable {
   final String name;
   final String value;
 
-  SnippetLangModel({required this.name, required this.value});
+  SnippetLanguageModel({required this.name, required this.value});
 
   @override
   List<Object?> get props => [name, value];
