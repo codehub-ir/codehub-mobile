@@ -55,7 +55,7 @@ class NewSnippetBloc extends Bloc<NewSnippetEvent, NewSnippetState> {
             "title": event.snippet.title,
             "description": event.snippet.description,
             "body": event.snippet.body,
-            "lang": event.snippet.language,
+            "lang": event.snippet.lang,
           });
 
           print(data);
@@ -74,7 +74,7 @@ class NewSnippetBloc extends Bloc<NewSnippetEvent, NewSnippetState> {
       return titleSnippetError;
     } else if (item.description.isEmpty) {
       return descriptionSnippetError;
-    } else if (item.language.isEmpty || item.language == "-") {
+    } else if (item.lang.isEmpty || item.lang == "-") {
       return languageSnippetError;
     } else if (item.body.isEmpty) {
       return bodySnippetError;

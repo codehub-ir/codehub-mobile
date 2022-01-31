@@ -205,7 +205,10 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
                                   title: _titleController.text,
                                   body: _bodyController.text,
                                   description: _descriptionController.text,
-                                  language: selectedLanguageItem.value,
+                                  lang: selectedLanguageItem.value,
+                                  createdBy: "",
+                                  createdOn: "",
+                                  id: "",
                                 ),
                               ),
                             );
