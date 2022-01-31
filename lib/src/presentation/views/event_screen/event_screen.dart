@@ -4,6 +4,7 @@ import 'package:codehub/src/core/constant/app_styles/app_styles.dart';
 import 'package:codehub/src/core/utils/extensions/time_formatter/time_formatter.dart';
 import 'package:codehub/src/core/utils/size_config/size_config.dart';
 import 'package:codehub/src/data/models/event_model.dart';
+import 'package:codehub/src/injector.dart';
 import 'package:codehub/src/presentation/blocs/event_bloc/events_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +20,7 @@ class EventScreen extends StatelessWidget {
           title: Text(eventPageTitle),
         ),
         body: BlocProvider(
-          create: (context) => EventsBloc()..add(InitialEvent()),
+          create: (context) => getIt<EventsBloc>()..add(InitialEvent()),
           child: BlocConsumer<EventsBloc, EventsState>(
             listener: (context, state) {},
             builder: (context, state) {
