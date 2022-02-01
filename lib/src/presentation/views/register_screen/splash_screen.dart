@@ -1,7 +1,7 @@
 import 'package:codehub/src/presentation/views/home_screen/home_screen.dart';
 import 'package:codehub/src/presentation/views/intro_screen/intro_screen.dart';
 import 'package:codehub/src/presentation/widgets/custom_indicators.dart';
-import 'package:codehub/services/storage/storage.dart';
+import 'package:codehub/src/data/datasources/local/storage.dart';
 import 'package:codehub/src/injector.dart';
 import 'package:flutter/material.dart';
 

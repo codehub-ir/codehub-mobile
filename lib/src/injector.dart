@@ -1,4 +1,4 @@
-import 'package:codehub/services/storage/storage.dart';
+import 'package:codehub/src/data/datasources/local/storage.dart';
 import 'package:codehub/src/data/datasources/remote/api_service.dart';
 import 'package:codehub/src/data/repositories/event_repository_impl.dart';
 import 'package:codehub/src/data/repositories/snippet_repository_impl.dart';
