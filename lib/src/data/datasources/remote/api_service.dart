@@ -1,5 +1,6 @@
 import 'package:codehub/src/core/constant/api_path/api_path.dart';
 import 'package:codehub/src/data/models/event_model.dart';
+import 'package:codehub/src/data/models/snippet_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -11,4 +12,8 @@ abstract class ApiService {
 
   @GET(readEventListPath)
   Future<HttpResponse<List<EventsModel>>> getEvents();
+
+  @POST(createSnippetPath)
+  Future<HttpResponse<SnippetModel>> createSnippet(
+      @Body() Map<String, dynamic> params);
 }

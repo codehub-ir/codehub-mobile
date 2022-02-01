@@ -11,6 +11,8 @@ import 'package:codehub/src/presentation/widgets/custom_indicators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../injector.dart';
+
 class NewSnippetScreen extends StatefulWidget {
   NewSnippetScreen({Key? key}) : super(key: key);
 
@@ -23,14 +25,14 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
   TextEditingController _descriptionController = TextEditingController();
   TextEditingController _bodyController = TextEditingController();
 
-  late NewSnippetBloc _newSnippetBloc;
-
   SnippetLanguageModel selectedLanguageItem =
       SnippetLanguageModel(name: "-----", value: "-");
 
+  late NewSnippetBloc _newSnippetBloc;
+
   @override
   void initState() {
-    _newSnippetBloc = NewSnippetBloc();
+    _newSnippetBloc = getIt<NewSnippetBloc>();
     super.initState();
   }
 

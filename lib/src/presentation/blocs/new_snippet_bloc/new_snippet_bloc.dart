@@ -4,16 +4,21 @@ import 'package:bloc/bloc.dart';
 import 'package:codehub/services/api_base_helper/api_base_helper.dart';
 import 'package:codehub/src/core/constant/api_path/api_path.dart';
 import 'package:codehub/src/core/constant/app_strings/app_strings.dart';
+import 'package:codehub/src/core/resources/data_state.dart';
 import 'package:codehub/src/core/utils/custom_debugger/custom_debugger.dart';
 import 'package:codehub/src/data/models/snippet_language_model.dart';
 import 'package:codehub/src/data/models/snippet_model.dart';
+import 'package:codehub/src/domain/usecases/create_snippet_usecase.dart';
 import 'package:equatable/equatable.dart';
+import 'package:retrofit/retrofit.dart';
 
 part 'new_snippet_event.dart';
 
 part 'new_snippet_state.dart';
 
 class NewSnippetBloc extends Bloc<NewSnippetEvent, NewSnippetState> {
+  final CreateSnippetUseCase _createSnippetUseCase;
+
   final List<SnippetLanguageModel> languagesModel = [
     SnippetLanguageModel(name: "-----", value: "-"),
     SnippetLanguageModel(name: "Arduino", value: "arduino"),
@@ -38,7 +43,7 @@ class NewSnippetBloc extends Bloc<NewSnippetEvent, NewSnippetState> {
     SnippetLanguageModel(name: "Ruby", value: "rb"),
   ];
 
-  NewSnippetBloc() : super(NewSnippetInitial()) {
+  NewSnippetBloc(this._createSnippetUseCase) : super(NewSnippetInitial()) {
     on<NewSnippetEvent>((event, emit) {});
     on<LanguagesItemOnSelect>((event, emit) {
       emit(LanguageSelectedSuccess(event.item));
@@ -51,7 +56,7 @@ class NewSnippetBloc extends Bloc<NewSnippetEvent, NewSnippetState> {
           String? error = checkValues(event.snippet);
           emit(SubmitSnippetFailed(error!));
         } else {
-          var data = await ApiBaseHelper.post(createSnippetPath, body: {
+          DataState data = await _createSnippetUseCase.call(params: {
             "title": event.snippet.title,
             "description": event.snippet.description,
             "body": event.snippet.body,
@@ -60,7 +65,11 @@ class NewSnippetBloc extends Bloc<NewSnippetEvent, NewSnippetState> {
 
           print(data);
 
-          emit(SubmitSnippetSuccess());
+          if (data.error == null && data.data != null) {
+            emit(SubmitSnippetSuccess());
+          } else {
+            emit(SubmitSnippetFailed(data.error!.message));
+          }
         }
       } catch (e, s) {
         emit(SubmitSnippetFailed(e.toString()));

@@ -25,6 +25,6 @@ class SnippetModel extends Snippet {
       description: data["description"],
       lang: data["lang"],
       body: data["body"],
-      createdOn: data["created_on"],
-      createdBy: data["created_by"]);
+      createdOn: data["created_on"] ?? " ",
+      createdBy: data["created_by"] ?? " ");
 }
