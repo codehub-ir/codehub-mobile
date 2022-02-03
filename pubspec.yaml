@@ -24,12 +24,17 @@ dependencies:
   get_storage: ^2.0.3
   skeletons: ^0.0.3
   font_awesome_flutter: ^9.2.0
+  retrofit: ^3.0.1
+  retrofit_generator: ^4.0.1
+  ionicons: ^0.1.2
+  dio: ^4.0.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_localizations:
     sdk: flutter
+  build_runner: ^2.1.7
 
 flutter_icons:
   android: "launcher_icon"
