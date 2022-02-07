@@ -32,7 +32,7 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
 
   @override
   void initState() {
-    _newSnippetBloc = getIt<NewSnippetBloc>();
+    _newSnippetBloc = NewSnippetBloc(getIt());
     super.initState();
   }
 

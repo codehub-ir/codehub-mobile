@@ -214,16 +214,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 title: newSnippetTitle,
               ),
-              // drawerRowTile(
-              //   icon: Icons.tag,
-              //   onTap: () {},
-              //   title: tagsTitle,
-              // ),
-              // drawerRowTile(
-              //   icon: Icons.settings,
-              //   onTap: () {},
-              //   title: settingTitle,
-              // ),
               drawerRowTile(
                 icon: Icons.developer_mode,
                 onTap: () {

@@ -37,8 +37,4 @@ void serviceLocator() async {
   // inject usecases
   getIt.registerSingleton<GetEventsUseCase>(GetEventsUseCase(getIt()));
   getIt.registerSingleton<CreateSnippetUseCase>(CreateSnippetUseCase(getIt()));
-
-  // injects blocs
-  getIt.registerFactory<EventsBloc>(() => EventsBloc(getIt()));
-  getIt.registerFactory<NewSnippetBloc>(() => NewSnippetBloc(getIt()));
 }
