@@ -30,15 +30,13 @@ void serviceLocator() async {
   // inject api service
   getIt.registerSingleton<ApiService>(ApiService(getIt()));
 
-  // inject repositories
-  getIt.registerSingleton<EventRepository>(EventRepositoryImpl(getIt()));
-  getIt.registerSingleton<SnippetRepository>(SnippetRepositoryImpl(getIt()));
+  // inject repositories / useCases
   getIt.registerSingleton<GlobalStateRepository>(
       GlobalStateRepositoryImpl(getIt()));
-
-  // inject useCases
-  getIt.registerSingleton<GetEventsUseCase>(GetEventsUseCase(getIt()));
-  getIt.registerSingleton<CreateSnippetUseCase>(CreateSnippetUseCase(getIt()));
   getIt.registerSingleton<CheckIntroStateUseCase>(
       CheckIntroStateUseCase(getIt()));
+  getIt.registerSingleton<EventRepository>(EventRepositoryImpl(getIt()));
+  getIt.registerSingleton<GetEventsUseCase>(GetEventsUseCase(getIt()));
+  getIt.registerSingleton<SnippetRepository>(SnippetRepositoryImpl(getIt()));
+  getIt.registerSingleton<CreateSnippetUseCase>(CreateSnippetUseCase(getIt()));
 }
