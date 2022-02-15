@@ -2,7 +2,7 @@ import 'package:codehub/src/injector.dart';
 import 'package:get_storage/get_storage.dart';
 
 class Storage {
-  /// requred functions to handle intro state
+  /// required functions to handle intro state
   final introState = "intro";
 
   void writeIntroState() => getIt<GetStorage>().write(introState, true);
