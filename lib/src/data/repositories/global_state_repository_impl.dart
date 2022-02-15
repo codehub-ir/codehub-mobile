@@ -2,7 +2,7 @@ import 'package:codehub/src/domain/repositories/global_state_repository.dart';
 
 import '../datasources/local/storage.dart';
 
-class GlobalStateRepositoryImpl extends GlobalStateRepository {
+class GlobalStateRepositoryImpl implements GlobalStateRepository {
   final Storage _storage;
 
   GlobalStateRepositoryImpl(this._storage);

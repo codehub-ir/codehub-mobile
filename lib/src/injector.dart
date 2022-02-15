@@ -24,19 +24,23 @@ void serviceLocator() async {
   getIt.registerSingleton<GetStorage>(storage);
   getIt.registerSingleton<Storage>(storageClass);
 
+  // inject global state repository / usecase
+  getIt.registerSingleton<GlobalStateRepository>(
+      GlobalStateRepositoryImpl(getIt()));
+  getIt.registerSingleton<CheckIntroStateUseCase>(
+      CheckIntroStateUseCase(getIt()));
+
   // inject dio instance
   getIt.registerSingleton<Dio>(Dio());
 
   // inject api service
   getIt.registerSingleton<ApiService>(ApiService(getIt()));
 
-  // inject repositories / useCases
-  getIt.registerSingleton<GlobalStateRepository>(
-      GlobalStateRepositoryImpl(getIt()));
-  getIt.registerSingleton<CheckIntroStateUseCase>(
-      CheckIntroStateUseCase(getIt()));
+  // inject other repositories / useCases
+
   getIt.registerSingleton<EventRepository>(EventRepositoryImpl(getIt()));
   getIt.registerSingleton<GetEventsUseCase>(GetEventsUseCase(getIt()));
+
   getIt.registerSingleton<SnippetRepository>(SnippetRepositoryImpl(getIt()));
   getIt.registerSingleton<CreateSnippetUseCase>(CreateSnippetUseCase(getIt()));
 }
