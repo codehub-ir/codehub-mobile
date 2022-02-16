@@ -20,7 +20,7 @@ class EventScreen extends StatelessWidget {
           title: Text(eventPageTitle),
         ),
         body: BlocProvider(
-          create: (context) => getIt<EventsBloc>()..add(InitialEvent()),
+          create: (context) => EventsBloc(getIt())..add(InitialEvent()),
           child: BlocConsumer<EventsBloc, EventsState>(
             listener: (context, state) {},
             builder: (context, state) {

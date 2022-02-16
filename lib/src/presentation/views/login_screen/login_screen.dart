@@ -5,7 +5,7 @@ import 'package:codehub/src/core/utils/size_config/size_config.dart';
 import 'package:codehub/src/presentation/widgets/custom_auth_widget.dart';
 import 'package:codehub/src/presentation/widgets/custom_checkbox.dart';
 import 'package:codehub/src/presentation/widgets/custom_gradient_button.dart';
-import 'package:codehub/src/presentation/views/splash_screen/register_screen.dart';
+import 'package:codehub/src/presentation/views/register_screen/register_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
