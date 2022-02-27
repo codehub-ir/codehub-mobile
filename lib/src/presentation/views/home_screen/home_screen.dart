@@ -100,6 +100,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 repoDescription,
                 style: bodyStyle.copyWith(color: Colors.grey),
               ),
+              const SizedBox(
+                height: 40,
+              ),
+              developersSection(),
+              const SizedBox(
+                height: 40,
+              ),
             ],
           ),
         ),
@@ -107,8 +114,21 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Widget developersSection() {
+    return Column(
+      children: [
+        Center(
+          child: Text(
+            developersTitle,
+            style: titleBoldStyle,
+          ),
+        ),
+      ],
+    );
+  }
+
   Widget sizedBox() {
-    return SizedBox(
+    return const SizedBox(
       height: 10,
     );
   }

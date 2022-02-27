@@ -11,7 +11,7 @@ import 'src/core/constant/app_strings/app_strings.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  serviceLocator();
+  await serviceLocator();
   BlocOverrides.runZoned(
     () => runApp(const MyApp()),
     blocObserver: AppBlocObserver(),

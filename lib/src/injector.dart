@@ -13,9 +13,9 @@ import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:get_storage/get_storage.dart';
 
-final getIt = GetIt.instance;
+GetIt getIt = GetIt.instance;
 
-void serviceLocator() async {
+serviceLocator() async {
   Storage storageClass = Storage();
   GetStorage storage = GetStorage();
   await GetStorage.init();
@@ -24,17 +24,17 @@ void serviceLocator() async {
   getIt.registerSingleton<GetStorage>(storage);
   getIt.registerSingleton<Storage>(storageClass);
 
-  // inject global state repository / usecase
-  getIt.registerSingleton<GlobalStateRepository>(
-      GlobalStateRepositoryImpl(getIt()));
-  getIt.registerSingleton<CheckIntroStateUseCase>(
-      CheckIntroStateUseCase(getIt()));
-
   // inject dio instance
   getIt.registerSingleton<Dio>(Dio());
 
   // inject api service
   getIt.registerSingleton<ApiService>(ApiService(getIt()));
+
+  // inject global state repository / usecase
+  getIt.registerSingleton<GlobalStateRepository>(
+      GlobalStateRepositoryImpl(getIt()));
+  getIt.registerSingleton<CheckIntroStateUseCase>(
+      CheckIntroStateUseCase(getIt()));
 
   // inject other repositories / useCases
 
