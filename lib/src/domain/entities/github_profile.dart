@@ -11,12 +11,12 @@ class GithubProfile extends Equatable {
   final int following;
 
   GithubProfile({
-    this.avatarUrl,
+    required this.avatarUrl,
     required this.url,
     required this.name,
-    this.company,
-    this.location,
-    this.bio,
+    required this.company,
+    required this.location,
+    required this.bio,
     required this.follower,
     required this.following,
   });
