@@ -10,6 +10,8 @@ const homeContributeDescription =
 
 const repoDescription = "مخزن اصلی کد هاب در گیت هاب";
 
+const developersTitle = "توسعه دهندگان";
+
 const homeTitle = "کد هاب";
 const helloTitle = "سلام";
 const newSnippetTitle = "تکه کد جدید";
