@@ -1,5 +1,6 @@
 import 'package:codehub/src/core/constant/api_path/api_path.dart';
 import 'package:codehub/src/data/models/event_model.dart';
+import 'package:codehub/src/data/models/github_profile_model.dart';
 import 'package:codehub/src/data/models/snippet_model.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
@@ -16,4 +17,9 @@ abstract class ApiService {
   @POST(createSnippetPath)
   Future<HttpResponse<SnippetModel>> createSnippet(
       @Body() Map<String, dynamic> params);
+
+  @GET(githubProfilePath)
+  Future<HttpResponse<GithubProfileModel>> getGithubProfile(
+    @Path() String username,
+  );
 }
