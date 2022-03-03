@@ -1,5 +1,8 @@
 workflows:
-  hello-world:
-    name: Hello world workflow
+  my-workflow:
     scripts:
-      - echo "Hello World!"
+      - name: Build Android APK
+        working_directory: android
+        script: ./gradlew assembleRelease
+    artifacts:
+      - app/build/outputs/**/**/*.apk
