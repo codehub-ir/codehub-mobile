@@ -62,3 +62,7 @@ const introBody2 =
 const skipBtn = "رد کن";
 const doneBtn = "بزن بریم";
 const appVersion = "نسخه ۱";
+
+/// errors
+const socketExceptionErrorTitle = "اتصال به اینترنت را بررسی کنید";
+const exceptionErrorTitle = "مشکلی رخ داده دوباره امتحان کنید";
