@@ -3,6 +3,7 @@ import 'package:equatable/equatable.dart';
 class GithubProfile extends Equatable {
   final String? avatarUrl;
   final String url;
+  final String username;
   final String name;
   final String? company;
   final String? location;
@@ -13,6 +14,7 @@ class GithubProfile extends Equatable {
   GithubProfile({
     required this.avatarUrl,
     required this.url,
+    required this.username,
     required this.name,
     required this.company,
     required this.location,
@@ -25,6 +27,7 @@ class GithubProfile extends Equatable {
   List<Object?> get props => [
         avatarUrl,
         bio,
+        username,
         follower,
         following,
         url,

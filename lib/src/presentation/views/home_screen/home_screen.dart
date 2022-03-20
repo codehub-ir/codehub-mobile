@@ -9,12 +9,13 @@ import 'package:codehub/src/presentation/views/development_screen/development_sc
 import 'package:codehub/src/presentation/views/event_screen/event_screen.dart';
 import 'package:codehub/src/presentation/views/login_screen/login_screen.dart';
 import 'package:codehub/src/presentation/views/new_snippet_screen/new_snippet_screen.dart';
-import 'package:codehub/src/presentation/widgets/custom_cache_image.dart';
 import 'package:codehub/src/presentation/widgets/custom_gradient_button.dart';
 import 'package:codehub/src/presentation/widgets/custom_indicators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import '../../widgets/custom_cache_image.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -30,126 +31,182 @@ class HomeScreen extends StatelessWidget {
         ),
         drawer: customDrawer(context),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 20.0),
-            child: Column(
-              children: [
-                Center(
-                  child: Text(
-                    homeContentTitle,
-                    style: titleBoldStyle,
-                  ),
-                ),
-                sizedBox(),
-                Text(
-                  homeContentDescription,
-                  style: bodyStyle,
-                ),
-                sizedBox(),
-                Image.asset(
-                  'assets/images/django.png',
-                  width: 110,
-                ),
-                Center(
-                  child: Text(
-                    "+",
-                    style: titleBoldStyle,
-                  ),
-                ),
-                sizedBox(),
-                Image.asset(
-                  'assets/images/flutter.png',
-                  width: 90,
-                ),
-                sizedBox(),
-                Center(
-                  child: Text(
-                    "=",
-                    style: titleBoldStyle,
-                  ),
-                ),
-                sizedBox(),
-                Image.asset(
-                  'assets/images/logo.png',
-                  width: 90,
-                ),
-                sizedBox(),
-                sizedBox(),
-                sizedBox(),
-                sizedBox(),
-                sizedBox(),
-                Center(
-                  child: Text(
-                    homeContributeTitle,
-                    style: titleBoldStyle,
-                  ),
-                ),
-                sizedBox(),
-                Text(
-                  homeContributeDescription,
-                  style: bodyStyle,
-                ),
-                sizedBox(),
-                GestureDetector(
-                  onTap: () {
-                    CustomUrlLauncher.launchURL(
-                        "https://github.com/codehub-ir/codehub");
-                  },
-                  child: Image.asset(
-                    'assets/images/git.png',
-                    width: 90,
-                  ),
-                ),
-                Text(
-                  repoDescription,
-                  style: bodyStyle.copyWith(color: Colors.grey),
-                ),
-                const SizedBox(
-                  height: 40,
-                ),
-                developersSection(context),
-                const SizedBox(
-                  height: 40,
-                ),
-              ],
-            ),
+          child: Column(
+            children: [
+              serviceDescription(),
+              sizedBox(),
+              serviceTechLogo(),
+              sizedBox(),
+              sizedBox(),
+              sizedBox(),
+              sizedBox(),
+              sizedBox(),
+              developersSection(context),
+              sizedBox(),
+              contributeSection(),
+            ],
           ),
         ),
       ),
     );
   }
 
+  Widget serviceDescription() {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+      child: Column(
+        children: [
+          Center(
+            child: Text(
+              homeContentTitle,
+              style: titleBoldStyle,
+              textAlign: TextAlign.justify,
+            ),
+          ),
+          sizedBox(),
+          Text(
+            homeContentDescription,
+            style: bodyStyle,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget serviceTechLogo() {
+    return Column(
+      children: [
+        Image.asset(
+          'assets/images/django.png',
+          width: 110,
+        ),
+        Center(
+          child: Text(
+            "+",
+            style: titleBoldStyle,
+          ),
+        ),
+        sizedBox(),
+        Image.asset(
+          'assets/images/flutter.png',
+          width: 90,
+        ),
+        sizedBox(),
+        Center(
+          child: Text(
+            "=",
+            style: titleBoldStyle,
+          ),
+        ),
+        sizedBox(),
+        Image.asset(
+          'assets/images/logo.png',
+          width: 90,
+        ),
+      ],
+    );
+  }
+
+  Widget contributeSection() {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+      child: Column(
+        children: [
+          Center(
+            child: Text(
+              homeContributeTitle,
+              style: titleBoldStyle,
+            ),
+          ),
+          sizedBox(),
+          Text(
+            homeContributeDescription,
+            style: bodyStyle,
+          ),
+          GestureDetector(
+            onTap: () {
+              CustomUrlLauncher.launchURL(
+                  "https://github.com/codehub-ir/codehub");
+            },
+            child: Image.asset(
+              'assets/images/git.png',
+              width: 90,
+            ),
+          ),
+          Text(
+            repoDescription,
+            style: bodyStyle.copyWith(color: Colors.grey),
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+        ],
+      ),
+    );
+  }
+
   Widget profileWidget({required GithubProfileModel item}) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0),
-        child: Container(
-          width: 300,
-          decoration: BoxDecoration(
-              border: Border.all(color: primaryColor),
-              borderRadius: BorderRadius.circular(20)),
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Material(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(100),
+    return GestureDetector(
+      onTap: () {
+        CustomUrlLauncher.launchURL(item.username);
+      },
+      child: Directionality(
+        textDirection: TextDirection.ltr,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0),
+          child: Card(
+            elevation: 3,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Container(
+              width: 300,
+              height: 250,
+              padding: EdgeInsets.all(8.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Align(
+                    alignment: Alignment.center,
+                    child: Material(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(100),
+                      ),
+                      clipBehavior: Clip.hardEdge,
+                      child: CustomCacheImage(
+                        width: 80,
+                        height: 80,
+                        url: item.avatarUrl ?? " ",
+                      ),
+                    ),
                   ),
-                  clipBehavior: Clip.hardEdge,
-                  child: CustomCacheImage(
-                    width: 80,
-                    height: 80,
-                    url: item.avatarUrl ?? " ",
+                  SizedBox(width: 20),
+                  Text(
+                    item.name,
+                    style: bodyStyle.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Text(
+                          item.bio ?? " ",
+                          style: underlineStyle,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Text(
+                    "Location : " + (item.location ?? "Global"),
+                    style: underlineBoldStyle,
+                  ),
+                ],
               ),
-              Text(item.name),
-              Text(item.bio ?? " "),
-              Text(item.location ?? " "),
-            ],
+            ),
           ),
         ),
       ),
@@ -188,18 +245,16 @@ class HomeScreen extends StatelessWidget {
         }
         return Column(
           children: [
-            Center(
-              child: Text(
-                developersTitle,
-                style: titleBoldStyle,
+            Text(developersTitle, style: titleBoldStyle),
+            SizedBox(
+              height: 250,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: profiles.length,
+                itemBuilder: (context, index) =>
+                    profileWidget(item: profiles[index]),
               ),
             ),
-            ...[
-              for (int i = 0; i < profiles.length; i++)
-                profileWidget(
-                  item: profiles[i],
-                )
-            ],
           ],
         );
       },

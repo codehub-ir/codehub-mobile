@@ -10,7 +10,6 @@ import 'package:equatable/equatable.dart';
 import '../../../core/resources/data_state.dart';
 
 part 'home_event.dart';
-
 part 'home_state.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
@@ -23,9 +22,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         emit(ProfilesFetchedLoading());
         List<GithubProfileModel> profiles = [];
 
-        DataState profile1 =
-            await _getGithubProfileUsecase.call(params: "mahmoud-eslami");
         DataState profile2 =
+            await _getGithubProfileUsecase.call(params: "mahmoud-eslami");
+        DataState profile1 =
             await _getGithubProfileUsecase.call(params: "lnxpy");
 
         profiles..addAll([profile1.data, profile2.data]);
