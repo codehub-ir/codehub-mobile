@@ -10,6 +10,7 @@ import 'src/core/constant/app_strings/app_strings.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await serviceLocator();
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
