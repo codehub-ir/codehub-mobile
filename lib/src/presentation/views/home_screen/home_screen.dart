@@ -1,3 +1,4 @@
+import 'package:codehub/src/core/constant/api_path/api_path.dart';
 import 'package:codehub/src/core/constant/app_colors/app_colors.dart';
 import 'package:codehub/src/core/constant/app_strings/app_strings.dart';
 import 'package:codehub/src/core/constant/app_styles/app_styles.dart';
@@ -148,7 +149,8 @@ class HomeScreen extends StatelessWidget {
   Widget profileWidget({required GithubProfileModel item}) {
     return GestureDetector(
       onTap: () {
-        CustomUrlLauncher.launchURL(item.username);
+        CustomUrlLauncher.launchURL(
+            gitRedirectUrl.replaceFirst("#", item.username));
       },
       child: Directionality(
         textDirection: TextDirection.ltr,
