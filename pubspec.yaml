@@ -28,7 +28,8 @@ dependencies:
   retrofit_generator: ^4.0.1
   ionicons: ^0.1.2
   dio: ^4.0.4
-  carousel_slider: ^4.0.0
+  cached_network_image: ^3.2.0
+
 
 dev_dependencies:
   flutter_test:
