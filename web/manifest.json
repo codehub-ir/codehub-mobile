@@ -1,6 +1,6 @@
 {
-    "name": "codehub",
-    "short_name": "codehub",
+    "name": "codehub_mobile",
+    "short_name": "codehub_mobile",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
