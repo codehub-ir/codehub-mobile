@@ -21,7 +21,7 @@ Thank you for considering contributing to Pastebinator!
 
 ## License:
 
-Pastebinator is licensed under the GNU General Public License v3.0 License. See [LICENSE](https://github.com/codehub-ir/codehub-mobile/blob/main/LICENSE) for more information.
+CodeHub is licensed under the GNU General Public License v3.0 License. See [LICENSE](https://github.com/codehub-ir/codehub-mobile/blob/main/LICENSE) for more information.
 
 
 ## Showcase
