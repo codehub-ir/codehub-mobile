@@ -17,7 +17,7 @@ Codehub is an open source project and we welcome contributions from the communit
 - Fork the repository and make your changes.
 - Submit a pull request with a clear explanation of your changes.
 
-Thank you for considering contributing to Pastebinator!
+Thank you for considering contributing to CodeHub!
 
 ## License:
 
@@ -26,7 +26,7 @@ CodeHub is licensed under the GNU General Public License v3.0 License. See [LICE
 
 ## Showcase
 
-<p align="center">
+<p align="start">
 <img src="https://raw.githubusercontent.com/codehub-ir/codehub-mobile/main/screen-shots/1.png" width="130"> <img src="https://raw.githubusercontent.com/codehub-ir/codehub-mobile/main/screen-shots/2.png" width="130">
 <img src="https://raw.githubusercontent.com/codehub-ir/codehub-mobile/main/screen-shots/3.png" width="130">
 <img src="https://raw.githubusercontent.com/codehub-ir/codehub-mobile/main/screen-shots/4.png" width="130">
