@@ -2,10 +2,10 @@ import 'package:codehub/src/core/constant/app_colors/app_colors.dart';
 import 'package:codehub/src/core/constant/app_strings/app_strings.dart';
 import 'package:codehub/src/core/constant/app_styles/app_styles.dart';
 import 'package:codehub/src/core/utils/size_config/size_config.dart';
+import 'package:codehub/src/presentation/views/register_screen/register_screen.dart';
 import 'package:codehub/src/presentation/widgets/custom_auth_widget.dart';
 import 'package:codehub/src/presentation/widgets/custom_checkbox.dart';
 import 'package:codehub/src/presentation/widgets/custom_gradient_button.dart';
-import 'package:codehub/src/presentation/views/register_screen/register_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -110,20 +110,20 @@ class _LoginPageState extends State<LoginPage> {
                   child: CustomGradientButton(
                     onPressed: () {},
                     child: Text(loginBtn),
-                    width: 250,
+                    width: SizeConfig.widthMultiplier * 100,
                     height: 50,
                     borderRadius: 20,
                     colors: [primaryColor, Colors.cyan],
                   ),
                 ),
-                sizedBox(SizeConfig.heightMultiplier * 2),
+                sizedBox(SizeConfig.heightMultiplier * 1),
                 Center(
                   child: CustomGradientButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
                     child: Text(backBtn),
-                    width: 200,
+                    width: SizeConfig.widthMultiplier * 100,
                     height: 50,
                     borderRadius: 20,
                     colors: [Colors.red, primaryColor.withOpacity(.2)],
@@ -133,9 +133,7 @@ class _LoginPageState extends State<LoginPage> {
                 GestureDetector(
                   onTap: () {
                     Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RegisterPage()));
+                        context, MaterialPageRoute(builder: (context) => RegisterPage()));
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
