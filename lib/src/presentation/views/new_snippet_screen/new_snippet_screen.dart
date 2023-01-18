@@ -173,16 +173,21 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
                     style: bodyBoldStyle,
                   ),
                   sizedBox(SizeConfig.heightMultiplier * 2),
-                  Directionality(
-                    textDirection: TextDirection.ltr,
-                    child: MarkdownTextInput(
-                      (String value) => setState(() => description = value),
-                      description,
-                      label: 'Code Body',
-                      maxLines: null,
-                      actions: MarkdownType.values,
-                      controller: _bodyController,
-                    ),
+                  BlocBuilder(
+                    bloc: _newSnippetBloc,
+                    builder: (context, state) {
+                      return Directionality(
+                        textDirection: TextDirection.ltr,
+                        child: MarkdownTextInput(
+                          (String value) => _newSnippetBloc.add(CodeBodyControllerUpdated(value)),
+                          (state is UpdateCodeBodyValue) ? state.value : description,
+                          label: codeBodyEditorTitle,
+                          maxLines: null,
+                          actions: MarkdownType.values,
+                          controller: _bodyController,
+                        ),
+                      );
+                    },
                   ),
                   sizedBox(SizeConfig.heightMultiplier * 3),
                   BlocBuilder(
