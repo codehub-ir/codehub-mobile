@@ -14,7 +14,7 @@ class RegisterPage extends StatefulWidget {
 
 class _RegisterPageState extends State<RegisterPage> {
   bool passwordVisible = false;
-  bool passwordConfrimationVisible = false;
+  bool passwordConfirmationVisible = false;
 
   void togglePassword() {
     setState(() {
@@ -98,19 +98,18 @@ class _RegisterPageState extends State<RegisterPage> {
                           borderRadius: BorderRadius.circular(14.0),
                         ),
                         child: TextFormField(
-                          obscureText: !passwordConfrimationVisible,
+                          obscureText: !passwordConfirmationVisible,
                           decoration: InputDecoration(
                             hintText: confirmPwdHint,
                             suffixIcon: IconButton(
                               color: textGrey,
                               splashRadius: 1,
-                              icon: Icon(passwordConfrimationVisible
+                              icon: Icon(passwordConfirmationVisible
                                   ? Icons.visibility_outlined
                                   : Icons.visibility_off_outlined),
                               onPressed: () {
                                 setState(() {
-                                  passwordConfrimationVisible =
-                                      !passwordConfrimationVisible;
+                                  passwordConfirmationVisible = !passwordConfirmationVisible;
                                 });
                               },
                             ),
@@ -142,13 +141,26 @@ class _RegisterPageState extends State<RegisterPage> {
                   child: CustomGradientButton(
                     onPressed: () {},
                     child: Text(registerBtn),
-                    width: 250,
+                    width: SizeConfig.widthMultiplier * 100,
                     height: 50,
                     borderRadius: 20,
                     colors: [primaryColor, primaryColor.withOpacity(.2)],
                   ),
                 ),
-                sizedBox(SizeConfig.heightMultiplier * 4),
+                sizedBox(SizeConfig.heightMultiplier * 1),
+                Center(
+                  child: CustomGradientButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(backBtn),
+                    width: SizeConfig.widthMultiplier * 100,
+                    height: 50,
+                    borderRadius: 20,
+                    colors: [Colors.red, primaryColor.withOpacity(.2)],
+                  ),
+                ),
+                sizedBox(SizeConfig.heightMultiplier * 2),
                 GestureDetector(
                   onTap: () {
                     Navigator.pop(context);

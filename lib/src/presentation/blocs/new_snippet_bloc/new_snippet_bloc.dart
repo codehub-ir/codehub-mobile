@@ -8,7 +8,6 @@ import 'package:codehub/src/domain/usecases/create_snippet_usecase.dart';
 import 'package:equatable/equatable.dart';
 
 part 'new_snippet_event.dart';
-
 part 'new_snippet_state.dart';
 
 class NewSnippetBloc extends Bloc<NewSnippetEvent, NewSnippetState> {
@@ -43,34 +42,41 @@ class NewSnippetBloc extends Bloc<NewSnippetEvent, NewSnippetState> {
     on<LanguagesItemOnSelect>((event, emit) {
       emit(LanguageSelectedSuccess(event.item));
     });
-    on<SubmitSnippet>((event, emit) async {
-      try {
-        emit(SubmitSnippetLoading());
+    on<SubmitSnippet>(_onSubmitSnippet);
+    on<CodeBodyControllerUpdated>(
+      (event, emit) {
+        emit(UpdateCodeBodyValue(event.value));
+      },
+    );
+  }
 
-        if (checkValues(event.snippet) != null) {
-          String? error = checkValues(event.snippet);
-          emit(SubmitSnippetFailed(error!));
+  _onSubmitSnippet(SubmitSnippet event, Emitter emit) async {
+    try {
+      emit(SubmitSnippetLoading());
+
+      if (checkValues(event.snippet) != null) {
+        String? error = checkValues(event.snippet);
+        emit(SubmitSnippetFailed(error!));
+      } else {
+        DataState data = await _createSnippetUseCase.call(params: {
+          "title": event.snippet.title,
+          "description": event.snippet.description,
+          "body": event.snippet.body,
+          "lang": event.snippet.lang,
+        });
+
+        print(data);
+
+        if (data.error == null && data.data != null) {
+          emit(SubmitSnippetSuccess());
         } else {
-          DataState data = await _createSnippetUseCase.call(params: {
-            "title": event.snippet.title,
-            "description": event.snippet.description,
-            "body": event.snippet.body,
-            "lang": event.snippet.lang,
-          });
-
-          print(data);
-
-          if (data.error == null && data.data != null) {
-            emit(SubmitSnippetSuccess());
-          } else {
-            emit(SubmitSnippetFailed(data.error!.message));
-          }
+          emit(SubmitSnippetFailed(data.error!.message));
         }
-      } catch (e, s) {
-        emit(SubmitSnippetFailed(e.toString()));
-        CustomDebugger.errorDebugger(e, s);
       }
-    });
+    } catch (e, s) {
+      emit(SubmitSnippetFailed(e.toString()));
+      CustomDebugger.errorDebugger(e, s);
+    }
   }
 
   String? checkValues(SnippetModel item) {
