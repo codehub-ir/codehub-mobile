@@ -10,6 +10,8 @@ import 'package:codehub/src/presentation/widgets/custom_gradient_button.dart';
 import 'package:codehub/src/presentation/widgets/custom_indicators.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:markdown_editable_textinput/format_markdown.dart';
+import 'package:markdown_editable_textinput/markdown_text_input.dart';
 
 import '../../../injector.dart';
 
@@ -24,9 +26,8 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
   TextEditingController _titleController = TextEditingController();
   TextEditingController _descriptionController = TextEditingController();
   TextEditingController _bodyController = TextEditingController();
-
-  SnippetLanguageModel selectedLanguageItem =
-      SnippetLanguageModel(name: "-----", value: "-");
+  String description = 'My great package';
+  SnippetLanguageModel selectedLanguageItem = SnippetLanguageModel(name: "-----", value: "-");
 
   late NewSnippetBloc _newSnippetBloc;
 
@@ -63,8 +64,7 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
             if (state is SubmitSnippetFailed) {
               customSnackBar(context, state.error, isSuccess: false);
             } else if (state is SubmitSnippetSuccess) {
-              customSnackBar(context, snippetAddedSuccessTitle,
-                  isSuccess: true);
+              customSnackBar(context, snippetAddedSuccessTitle, isSuccess: true);
             }
           },
           child: SingleChildScrollView(
@@ -154,13 +154,11 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
                                   return DropdownMenuItem<SnippetLanguageModel>(
                                     value: e,
                                     child: Directionality(
-                                        textDirection: TextDirection.ltr,
-                                        child: Text(e.name)),
+                                        textDirection: TextDirection.ltr, child: Text(e.name)),
                                   );
                                 }).toList(),
                                 onChanged: (value) {
-                                  _newSnippetBloc
-                                      .add(LanguagesItemOnSelect(value!));
+                                  _newSnippetBloc.add(LanguagesItemOnSelect(value!));
                                 },
                               ),
                             ),
@@ -177,21 +175,13 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
                   sizedBox(SizeConfig.heightMultiplier * 2),
                   Directionality(
                     textDirection: TextDirection.ltr,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: textGrey.withOpacity(.3),
-                        borderRadius: BorderRadius.circular(14.0),
-                      ),
-                      child: TextFormField(
-                        controller: _bodyController,
-                        cursorColor: primaryColor,
-                        maxLines: null,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                          ),
-                        ),
-                      ),
+                    child: MarkdownTextInput(
+                      (String value) => setState(() => description = value),
+                      description,
+                      label: 'Code Body',
+                      maxLines: null,
+                      actions: MarkdownType.values,
+                      controller: _bodyController,
                     ),
                   ),
                   sizedBox(SizeConfig.heightMultiplier * 3),
@@ -220,7 +210,7 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
                                   color: whiteColor,
                                 )
                               : Text(createSnippet),
-                          width: SizeConfig.widthMultiplier * 60,
+                          width: SizeConfig.widthMultiplier * 100,
                           height: 55,
                           borderRadius: 20,
                           colors: [
