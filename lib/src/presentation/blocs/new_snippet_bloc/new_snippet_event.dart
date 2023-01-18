@@ -21,3 +21,12 @@ class LanguagesItemOnSelect extends NewSnippetEvent {
   @override
   List<Object?> get props => [item];
 }
+
+class CodeBodyControllerUpdated extends NewSnippetEvent {
+  final String value;
+
+  CodeBodyControllerUpdated(this.value);
+
+  @override
+  List<Object?> get props => [value];
+}

@@ -29,6 +29,7 @@ dependencies:
   ionicons: ^0.1.2
   dio: ^4.0.4
   cached_network_image: ^3.2.0
+  markdown_editable_textinput: ^2.2.0
 
 
 dev_dependencies:

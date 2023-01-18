@@ -36,3 +36,12 @@ class LanguageSelectedSuccess extends NewSnippetState {
   @override
   List<Object?> get props => [item];
 }
+
+class UpdateCodeBodyValue extends NewSnippetState {
+  final String value;
+
+  UpdateCodeBodyValue(this.value);
+
+  @override
+  List<Object?> get props => [value];
+}
