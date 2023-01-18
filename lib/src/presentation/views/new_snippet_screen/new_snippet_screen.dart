@@ -26,7 +26,7 @@ class _NewSnippetScreenState extends State<NewSnippetScreen> {
   TextEditingController _titleController = TextEditingController();
   TextEditingController _descriptionController = TextEditingController();
   TextEditingController _bodyController = TextEditingController();
-  String description = 'My great package';
+  String description = '';
   SnippetLanguageModel selectedLanguageItem = SnippetLanguageModel(name: "-----", value: "-");
 
   late NewSnippetBloc _newSnippetBloc;
